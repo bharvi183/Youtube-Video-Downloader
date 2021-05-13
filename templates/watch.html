@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            home page
+        </title>
+        
+        <style>
+
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+
+
+/* Style tab links */
+button.tablink {
+  background-color: white;
+  color: black;
+  float: left;
+  border: none;
+  height: 68px;
+  outline: none;
+  cursor: pointer;
+  
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  border-bottom: 4px brown solid;
+  color: brown;
+}
+
+#tabdiv{
+
+border-top: 1px black solid;
+border-bottom: 1px black solid ;
+height: 70px;
+padding-right: 200px;
+padding-left: 200px;
+}
+form{
+    width: 800px;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    height: 100px;
+    
+
+}
+#defaultOpen{
+border-bottom:4px brown solid ;
+}
+
+
+
+
+            h2{
+                color: brown;
+                size: 10px;
+                text-align: center;
+                
+                height: 60px;
+                align-items: center;
+                width: 1000px;
+
+            }
+            input{
+                
+                color: black;
+                width: 560px;
+                text-align: center;
+                height: 40px;
+                border: 1px red solid;
+                border-radius: 5px;
+
+            }
+            button.download{
+                background-color: rgb(216, 41, 41);
+                height: 40px;
+                width: 100px;
+                border-radius: 5px;
+                color: white;
+                box-shadow: 0px 0px 31px -2px rgb(216, 41, 41);
+-webkit-box-shadow: 0px 0px 31px -2px rgb(216, 41, 41);
+-moz-box-shadow: 0px 0px 31px -2px rgb(216, 41, 41);
+                
+            }
+            
+        </style>
+    </head>
+    <body >
+        
+        <center>
+            <img src="/static/logo.png" style="width: 100px;">
+            
+        </center>
+        
+
+
+
+<div id="tabdiv">
+
+<a href=watch ><button class="tablink" id = "defaultOpen">Watch the video</button></a>
+<a href=mp4 ><button class="tablink" >Youtube to MP4</button></a>
+<a href=mp3 ><button class="tablink" >Youtube to MP3</button></a>
+<a href=desc ><button class="tablink" >Know More</button></a>
+</div>
+
+<div id = "main">
+    <center>
+    <h1>Youtube Downloader</h1>
+   <h4>Watch any Youtube video here</h4>
+   
+
+<div id="content"></div>
+
+   <form action="{{ url_for('linktowatch')}}" method="post">
+        
+    <input type="text"  name = "towatch" placeholder="Enter Link Here" style="float: left;">
+   
+    <button type="submit" class="download" onclick="myGeeks()"  style="float: right;"><b>Upload URL</b></button>
+    
+</form>
+
+<script>
+    function myGeeks() {
+              var id = '{{id}}';
+              /* Create iframe element */
+              var ifram = document.createElement("IFRAME");
+                
+              /* Set the source attribute */
+              ifram.setAttribute("src", "https://www.youtube.com/embed/"+id);
+                
+              /* Set the iframe height */
+              ifram.setAttribute("height", "400");
+                
+              /* Set the iframe width */
+              ifram.setAttribute("width", "600");  
+              document.body.appendChild(ifram);
+          }     
+</script>
+
+
+</center>
+
+</div>
+
+
+
+    </body>
+</html>

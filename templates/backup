@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            home page
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            
+            $(document).ready(function(){
+   
+              $('#content').load("new.html");
+
+            });
+
+
+            function openPage(pageName,elmnt,color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(pageName).style.display = "block";
+                elmnt.style.backgroundColor = color;
+            }
+
+                // Get the element with id="defaultOpen" and click on it
+                document.getElementById("defaultOpen").click();
+
+        </script>
+        <style>
+
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+
+
+/* Style tab links */
+button.tablink {
+  background-color: white;
+  color: black;
+  float: left;
+  border: none;
+  height: 68px;
+  outline: none;
+  cursor: pointer;
+  
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  border-bottom: 2px brown solid;
+  color: brown;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  margin-top: 100px;
+  height: 100%;
+}
+#tabdiv{
+
+border-top: 1px black solid;
+border-bottom: 1px black solid ;
+height: 70px;
+padding-right: 200px;
+padding-left: 200px;
+}
+#Home {background-color: red;}
+#News {background-color: white;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+
+
+
+            h2{
+                color: brown;
+                size: 10px;
+                text-align: center;
+                
+                height: 60px;
+                align-items: center;
+                width: 1000px;
+
+            }
+            input{
+                background-color: burlywood;
+                color: brown;
+                width: 560px;
+                text-align: center;
+                height: 40px;
+                border-radius: 5px;
+
+            }
+            button.download{
+                background-color: brown;
+                height: 40px;
+                width: 100px;
+                border-radius: 5px;
+                color: white;
+                
+            }
+            
+        </style>
+    </head>
+    <body ng-app="">
+        
+        <center><h2> YouTube Video Downloder </h2></center>
+        
+
+
+
+<div id="tabdiv">
+
+<button class="tablink" onclick="location.href = 'success.html';">Watch the video</button>
+<button class="tablink" onclick="openPage('News', this, 'white')" id="defaultOpen">Youtube to MP4</button>
+<button class="tablink" onclick="openPage('Contact', this, 'white')">Youtube to MP3</button>
+<button class="tablink" onclick="openPage('About', this, 'white')">About</button>
+
+
+</div>
+
+<div id="watch" class="tabcontent" >
+    <!--<center>
+        
+        <form >
+        
+            <input type="text" id="link" placeholder="Enter Link Here" style="float: left; margin-left: 400px;" >
+            
+            <button class="download" onclick="playvideo()" type="submit" style="margin-right: 400px;"><b>Show</button>
+            
+        </form>
+        
+        <br>
+        <iframe id = "video1"width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+</iframe>
+        <script>
+            function playvideo(){
+                
+                var x = document.getElementById("link");
+                document.getElementById['video1'].src = x
+                
+            }
+        </script>
+    </center>
+</div>-->
+
+<div id="News" class="tabcontent">
+    <center>
+    <h2>Youtube to MP4</h2>
+    <form action="{{ url_for('link')}}" method="post">
+        
+        <input type="text"  name="pass_link" placeholder="Enter Link Here">
+        <br><br><br>
+        <button type="submit"><b>Download</b></button>
+        
+    </form>
+</center>
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Contact</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+</div>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </body>
+</html>
